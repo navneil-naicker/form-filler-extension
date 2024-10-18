@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Form Filler",
+  "version": "1.0",
+  "description": "Fills form fields when the icon is clicked",
+  "permissions": ["activeTab", "storage"],
+  "action": {
+    "default_title": "Click to fill form"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["data.json"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
